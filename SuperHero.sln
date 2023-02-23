@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{139BC3C4-E67B-459F-97B8-5C6309E4160E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtWebApiTutorial", "JwtWebApiTutorial\JwtWebApiTutorial.csproj", "{C28A631B-2548-4925-A864-2EDE51324CA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtWebApiTutorial", "JwtWebApiTutorial\JwtWebApiTutorial.csproj", "{C28A631B-2548-4925-A864-2EDE51324CA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreRelationships", "EFCoreRelationships\EFCoreRelationships.csproj", "{1A5831B2-923D-4ABF-A726-786576993998}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C28A631B-2548-4925-A864-2EDE51324CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C28A631B-2548-4925-A864-2EDE51324CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C28A631B-2548-4925-A864-2EDE51324CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5831B2-923D-4ABF-A726-786576993998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5831B2-923D-4ABF-A726-786576993998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5831B2-923D-4ABF-A726-786576993998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5831B2-923D-4ABF-A726-786576993998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
