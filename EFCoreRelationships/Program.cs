@@ -1,4 +1,8 @@
-using EFCoreRelationships.Data;
+global using EFCoreRelationships.Data;
+global using EFCoreRelationships.Interfaces;
+global using EFCoreRelationships.Services;
+global using EFCoreRelationships.Model;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder( args );
@@ -11,6 +15,8 @@ builder.Services.AddDbContext<DataContext>( options =>
     var config = builder.Configuration;
     options.UseSqlServer( config.GetConnectionString( "DefaultConnection" ) );
 } );
+
+builder.Services.AddScoped<ICharacterService, CharacterService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
