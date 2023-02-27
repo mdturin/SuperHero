@@ -1,4 +1,4 @@
-﻿namespace EFCoreRelationships.Model
+﻿namespace EFCoreRelationships.Models
 {
     public class User
     {

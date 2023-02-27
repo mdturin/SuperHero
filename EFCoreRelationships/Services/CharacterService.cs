@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EFCoreRelationships.Dto;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreRelationships.Services
@@ -10,6 +11,15 @@ namespace EFCoreRelationships.Services
         public CharacterService(DataContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<Character>> Add( Character request )
+        {
+            _context.Characters.Add( request );
+
+            _context.SaveChanges();
+
+            return await _context.Characters.ToListAsync();
         }
 
         public async Task<List<Character>> Get()

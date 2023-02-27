@@ -1,9 +1,10 @@
 global using EFCoreRelationships.Data;
 global using EFCoreRelationships.Interfaces;
 global using EFCoreRelationships.Services;
-global using EFCoreRelationships.Model;
+global using EFCoreRelationships.Models;
 
 using Microsoft.EntityFrameworkCore;
+using EFCoreRelationships.Builder;
 
 var builder = WebApplication.CreateBuilder( args );
 
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<DataContext>( options =>
 } );
 
 builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<CharacterBuilder>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

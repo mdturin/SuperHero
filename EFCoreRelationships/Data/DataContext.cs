@@ -1,5 +1,4 @@
-﻿using EFCoreRelationships.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreRelationships.Data
 {
