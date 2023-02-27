@@ -12,7 +12,7 @@ namespace JwtWebApiTutorial.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        [HttpGet, Authorize]
+        [HttpGet, Authorize(Roles = "Admin")]
         public ActionResult<List<string>> Get()
         {
             List<string> names = new List<string>() { "Md", "Turin" };
