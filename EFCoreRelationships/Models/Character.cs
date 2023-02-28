@@ -12,5 +12,6 @@
         public RPG RPGClass { get; set; } = RPG.Knight;
         public User? user { get; set; }
         public int UserId { get; set; }
+        public Weapon? Weapon { get; set; }
     }
 }
