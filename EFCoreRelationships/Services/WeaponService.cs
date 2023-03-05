@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EFCoreRelationships.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreRelationships.Services
 {
@@ -9,6 +10,16 @@ namespace EFCoreRelationships.Services
         public WeaponService(DataContext context)
         {
             _context = context;
+        }
+
+        public async Task Add(WeaponDto request)
+        {
+            Weapon weapon = new Weapon();
+            weapon.CharacterId = request.CharacterId;
+            weapon.Name = request.Name;
+            weapon.Damage = request.Damage;
+            await _context.Weapons.AddAsync(weapon);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Weapon>> Get()

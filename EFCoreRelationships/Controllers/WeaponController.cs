@@ -42,10 +42,8 @@ namespace EFCoreRelationships.Controllers
         [HttpPut( "add" )]
         public async Task<ActionResult<Weapon>> Add(WeaponDto request)
         {
-
-               
-
-            return Ok();
+            await _weaponService.Add( request );
+            return Ok("Weapon added!");
         }
     }
 }
