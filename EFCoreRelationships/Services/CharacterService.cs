@@ -7,10 +7,12 @@ namespace EFCoreRelationships.Services
     public class CharacterService : ICharacterService
     {
         private readonly DataContext _context;
+        private readonly IWeaponService _weaponService;
 
-        public CharacterService(DataContext context)
+        public CharacterService(DataContext context, IWeaponService weaponService)
         {
             _context = context;
+            _weaponService = weaponService;
         }
 
         public async Task<List<Character>> Add( Character request )
@@ -24,13 +26,16 @@ namespace EFCoreRelationships.Services
 
         public async Task<List<Character>> Get()
         {
-            return await _context.Characters.ToListAsync();
+            return await _context.Characters.Include(c => c.Weapon).ToListAsync();
         }
 
         public async Task<Character?> Get( int id )
         {
             return await _context
-                .Characters.FirstOrDefaultAsync(character => character.Id == id);
+                .Characters
+                .Where(c => c.UserId == id)
+                .Include(c => c.Weapon)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<List<Character>> GetByUserId( int userId )
@@ -39,6 +44,15 @@ namespace EFCoreRelationships.Services
                 .Characters
                 .Where( character => character.UserId == userId )
                 .ToListAsync();
+        }
+
+        public async Task<Character> UpdateWeapon(Character character, WeaponDto request)
+        {
+            var weapon = await _weaponService.Add(request);
+            character.Weapon = weapon;
+            _context.Characters.Update(character);
+            await _context.SaveChangesAsync();
+            return character;
         }
     }
 }

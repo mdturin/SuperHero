@@ -7,6 +7,6 @@ namespace EFCoreRelationships.Interfaces
         Task<List<Weapon>> Get();
         Task<Weapon?> Get( int id );
         Task<Weapon?> GetByCharacterId( int characterId );
-        Task Add(WeaponDto request);
+        Task<Weapon> Add(WeaponDto request);
     }
 }

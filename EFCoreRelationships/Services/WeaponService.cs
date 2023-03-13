@@ -12,7 +12,7 @@ namespace EFCoreRelationships.Services
             _context = context;
         }
 
-        public async Task Add(WeaponDto request)
+        public async Task<Weapon> Add(WeaponDto request)
         {
             Weapon weapon = new Weapon();
             weapon.CharacterId = request.CharacterId;
@@ -20,6 +20,7 @@ namespace EFCoreRelationships.Services
             weapon.Damage = request.Damage;
             await _context.Weapons.AddAsync(weapon);
             await _context.SaveChangesAsync();
+            return weapon;
         }
 
         public async Task<List<Weapon>> Get()
