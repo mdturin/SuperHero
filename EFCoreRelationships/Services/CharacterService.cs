@@ -26,7 +26,11 @@ namespace EFCoreRelationships.Services
 
         public async Task<List<Character>> Get()
         {
-            return await _context.Characters.Include(c => c.Weapon).ToListAsync();
+            return await _context
+                .Characters
+                .Include(c => c.Weapon)
+                .Include(c => c.Skills)
+                .ToListAsync();
         }
 
         public async Task<Character?> Get( int id )
@@ -35,6 +39,7 @@ namespace EFCoreRelationships.Services
                 .Characters
                 .Where(c => c.UserId == id)
                 .Include(c => c.Weapon)
+                .Include(c => c.Skills)
                 .FirstOrDefaultAsync();
         }
 
